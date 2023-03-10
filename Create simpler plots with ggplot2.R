@@ -38,6 +38,17 @@ POL <- ggplot(Biodata, aes(x = Pollen.cal.yr.BP, y = value, fill = polgroup)) +
   scale_y_continuous(limits = c(0, 100))
                   
 print(POL)
+#####
+library(areaplot)
+
+x <- Biodata$Pollen.cal.yr.BP
+
+y <- Biodata[, c(16,17,15,18)]
+
+areaplot(x, y,
+         main = "Stacked area chart",
+         xlab = "Year")
+### https://r-charts.com/evolution/stacked-area/
 
 CHAR <- ggplot(Biodata, aes(x = Charcoal.cal.yr.BP, y= CHAR)) +
   geom_line(color = "black") +
